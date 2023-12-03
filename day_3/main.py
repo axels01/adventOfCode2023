@@ -16,9 +16,9 @@ def part1(lines):
                     break
                 else:
                     number += nChar
-            
+
             already_read = len(number) - 1
-            
+
             search_area = str(lines[0][index - 1:index + len(number) + 1] +
                               lines[1][index - 1:index + len(number) + 1] +
                               lines[2][index - 1:index + len(number) + 1])
@@ -27,7 +27,7 @@ def part1(lines):
                 sum += int(number)
 
     print(f'    Sum: {sum}\n')
-    return(sum)
+    return sum
 
 
 def part2(lines):
@@ -35,23 +35,21 @@ def part2(lines):
 
     for index, char in enumerate(lines[1]):
         if char == '*':
-            imid_area =  [lines[0][index - 3:index + 4],
-                          lines[1][index - 3:index + 4],
-                          lines[2][index - 3:index + 4]]
+            imid_area = [lines[0][index - 3:index + 4],
+                         lines[1][index - 3:index + 4],
+                         lines[2][index - 3:index + 4]]
             numbers_touching = []
-            
+
             for line in imid_area:
-                #print(line)
-                matches = [(match.group(), match.start(), match.end()) for match in re.finditer(r'\d+', line)]
+                matches = [(match.group(), match.start(),
+                            match.end()) for match
+                           in re.finditer(r'\d+', line)]
                 for match in matches:
-                    #       start                  end
                     if 2 <= match[1] <= 4 or 3 <= match[2] <= 5:
                         numbers_touching.append(int(match[0]))
-                        print('   ', match)
-            print('   ', numbers_touching)
             if len(numbers_touching) == 2:
                 sum += int(numbers_touching[0])*int(numbers_touching[1])
-    return(sum)
+    return sum
 
 
 if __name__ == '__main__':
@@ -64,26 +62,25 @@ if __name__ == '__main__':
     # Debugging
     else:
         data = [
-                '467..114..', #1
+                '467..114..',  # 1
                 '...*......',
-                '..35..633.', #3
+                '..35..633.',  # 3
                 '......#...',
-                '617*......', #5
+                '617*......',  # 5
                 '.....+.58.',
-                '..592.....', #7
+                '..592.....',  # 7
                 '......755.',
-                '...$.*....', #9
+                '...$.*....',  # 9
                 '.664.598..'
                 ]
 
     for i in range(len(data)):
-        print(f'Line: {i+1}')
         if i == 0:
             rolling_score += part2(['', '.' + data[i], '.' + data[i+1]])
         elif i == len(data)-1:
             rolling_score += part2(['.' + data[i-1], '.' + data[i], ''])
         else:
-            rolling_score += part2(['.' + data[i-1], '.' + data[i], '.' + data[i+1]])
-
+            rolling_score += part2(['.' + data[i-1], '.' + data[i],
+                                    '.' + data[i+1]])
 
     print(f'Result: {rolling_score}')

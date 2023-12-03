@@ -45,9 +45,9 @@ def part2(line):
 if __name__ == '__main__':
     rollingScore = 0
     if True:
-        with open('data.txt', 'r') as file:
+        with open('day_1/data.txt', 'r') as file:
             for line in file:
-                rollingScore += part2(line.replace('\n', ''))
+                rollingScore += part1(line.replace('\n', ''))
     # Debugging
     else:
         lines = ['twofive2fourfive1dvnrrvjr',
