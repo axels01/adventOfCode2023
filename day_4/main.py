@@ -1,3 +1,5 @@
+import time
+
 def part1(line):
     correct_numbers = 0
     line = line.split('|')
@@ -19,11 +21,8 @@ def part2(my_cards):
     # For every card in my_cards
     for i, card in enumerate(my_cards):
         # For every copy of the card
-        for k in range(card[0]):
-            # Make copies of subsequent cards
-            # based on the score of the card
-            for j in range(card[1]):
-                my_cards[i + j + 1][0] += 1
+        for j in range(card[1]):
+            my_cards[i + j + 1][0] += (1 * card[0])
     card_count = 0
     for card in my_cards:
         card_count += card[0]
@@ -32,6 +31,7 @@ def part2(my_cards):
 
 
 if __name__ == '__main__':
+    start_time = time.time()
     runningTotal = 0
     my_cards = []
     if True:
@@ -55,3 +55,4 @@ if __name__ == '__main__':
 
     print(f'Result part 1: {runningTotal}')
     print(f'Result part 2: {part2(my_cards)}')
+    print(f'Time: {time.time() - start_time}')
