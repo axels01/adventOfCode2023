@@ -37,7 +37,7 @@ def part1(data):
             #print(seed)
             curr_num += 1
             if (curr_num / total_nums) >= curr_percent:
-                print(f'{str(curr_percent)[2:]}% at {str(time.time() - start_time)[:8 ]} seconds')
+                print(f'{str(curr_percent)[2:]}% at {str(time.time() - start_time)[:8 ]} seconds, current lowest: {curr_low}')
                 curr_percent += 0.0001
 
             value = int(seed)
