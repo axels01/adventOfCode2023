@@ -7,7 +7,7 @@ def part1(data):
     maps = {}
     seeds = re.sub('seeds: ', '', re.sub('\n', '', data.pop(0))).split()
     seed_to_loc = {}
-    curr_low = 1000000000
+    curr_low = 10000000000
     data.pop(0)
     curr_map = ''
     
