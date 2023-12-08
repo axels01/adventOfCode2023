@@ -2,29 +2,40 @@ import time
 import re
 
 def part1(data):
-    steps = data.pop(0)
+    steps = []
+    for char in re.sub('\n', '', data.pop(0)):
+        steps.append(char)
+
     map = {}
-
-    print(f'Steps: {steps}')
-    print(f'Map: {data}')
-
     for line in data:
-        line = re.sub(r'\W+', ' ', line).split()
-        print(line)
-        map[line[0]] = {'L': line[1], 'R': line[2]}
+        line = re.sub('\n', '', line)
+        if line != '':
+            line = re.sub(r'\W', ' ', line).split()
+            print(line)
+            map[line[0]] = {'L': line[1], 'R': line[2]}
+
+    stepsTaken = 0
+    currNode = 'AAA'
+
+    while currNode != 'ZZZ':
+        stepsTaken += 1
+
+        step = steps.pop(0)
+        steps.append(step)
+
+        currNode = map[currNode][step]
+
+    return stepsTaken
 
 
+def takeStep(map, stepsTaken, steps):
+    pass
 
-
-    return map
-
-
-def takeStep():
 
 
 if __name__ == '__main__':
     start_time = time.time()
-    if False:
+    if True:
         with open('data.txt', 'r') as data:
             print(f'\nPart 1 returned: {part1(data.readlines())}')
     else:
