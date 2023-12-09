@@ -1,5 +1,6 @@
 import time
 
+
 def part1(line):
     correct_numbers = 0
     line = line.split('|')

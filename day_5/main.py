@@ -2,6 +2,7 @@ import time
 import re
 import math
 
+
 def part1(data):
     start_time = time.time()
     maps = {}
@@ -26,15 +27,12 @@ def part1(data):
     curr_percent = 0.0001
     curr_num = 0
     seed_pairs = list(zip(seeds[::2], seeds[1::2]))
-         
+    
     for pair in seed_pairs:
         total_nums += (int(pair[1]))
-    
-    #print(total_nums)
-    
+
     for pair in seed_pairs:
         for seed in range(int(pair[0]), int(pair[0]) + int(pair[1])):
-            #print(seed)
             curr_num += 1
             if (curr_num / total_nums) >= curr_percent:
                 print(f'{str(curr_percent)[2:]}% at {str(time.time() - start_time)[:8 ]} seconds, current lowest: {curr_low}')
@@ -53,13 +51,13 @@ def part1(data):
                             break
                         break
 
-
     # print(seed_to_loc)
     # locs = []
     # for value in seed_to_loc.values():
     #     locs.append(value)
     # locs.sort()
     return curr_low
+
 
 if __name__ == '__main__':
     start_time = time.time()
