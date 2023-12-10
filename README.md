@@ -11,3 +11,5 @@ My solutions for [Advent of Code 2023](https://adventofcode.com/)
 |    |    |    |    |    |    |    |
 |18  |19  |20  |21  |22  |23  |24  |
 |    |    |    |    |    |    |    |
+|25  |    |    |    |    |    |    |
+|    |    |    |    |    |    |    |
